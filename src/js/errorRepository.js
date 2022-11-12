@@ -11,11 +11,9 @@ export default class ErrorRepository {
 
   translate(code) {
     let toReturn = 'Unknown error';
-    this.errorsList.forEach((element, index) => {
-      if (index === code) {
-        toReturn = element;
-      }
-    });
+    if (this.errorsList.has(code)) {
+      toReturn = this.errorsList.get(code);
+    }
     return toReturn;
   }
 }
